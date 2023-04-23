@@ -1,0 +1,40 @@
+type User {
+  id: ID!
+  email: String!
+  firstName: String!
+  lastName: String!
+  orders: [Order]
+  createdAt: String!
+  updatedAt: String!
+}
+
+type Product {
+  id: ID!
+  name: String!
+  description: String!
+  price: Float!
+  imageUrl: String
+  stock: Int!
+  createdAt: String!
+  updatedAt: String!
+}
+
+type Order {
+  id: ID!
+  user: User!
+  status: String!
+  totalPrice: Float!
+  items: [OrderItem]
+  createdAt: String!
+  updatedAt: String!
+}
+
+type OrderItem {
+  id: ID!
+  order: Order!
+  product: Product!
+  quantity: Int!
+  price: Float!
+  createdAt: String!
+  updatedAt: String!
+}

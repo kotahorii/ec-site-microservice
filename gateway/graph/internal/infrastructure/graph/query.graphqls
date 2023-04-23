@@ -1,0 +1,8 @@
+type Query {
+  user(id: ID!): User
+  users: [User]
+  product(id: ID!): Product
+  products: [Product]
+  order(id: ID!): Order
+  orders: [Order]
+}

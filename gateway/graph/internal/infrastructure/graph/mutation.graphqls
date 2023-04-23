@@ -1,0 +1,13 @@
+type Mutation {
+  createUser(input: CreateUserInput!): User
+  updateUser(id: ID!, input: UpdateUserInput!): User
+  deleteUser(id: ID!): Boolean
+
+  createProduct(input: CreateProductInput!): Product
+  updateProduct(id: ID!, input: UpdateProductInput!): Product
+  deleteProduct(id: ID!): Boolean
+
+  createOrder(input: CreateOrderInput!): Order
+  updateOrder(id: ID!, input: UpdateOrderInput!): Order
+  deleteOrder(id: ID!): Boolean
+}
