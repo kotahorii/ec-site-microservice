@@ -11,24 +11,19 @@ import (
 	"github.com/microservice-ec-site/graph/internal/domain/model"
 )
 
-// User is the resolver for the user field.
-func (r *queryResolver) User(ctx context.Context, id string) (*model.User, error) {
-	panic(fmt.Errorf("not implemented: User - user"))
+// CreateOrder is the resolver for the createOrder field.
+func (r *mutationResolver) CreateOrder(ctx context.Context, input model.CreateOrderInput) (*model.Order, error) {
+	panic(fmt.Errorf("not implemented: CreateOrder - createOrder"))
 }
 
-// Users is the resolver for the users field.
-func (r *queryResolver) Users(ctx context.Context) ([]*model.User, error) {
-	panic(fmt.Errorf("not implemented: Users - users"))
+// UpdateOrder is the resolver for the updateOrder field.
+func (r *mutationResolver) UpdateOrder(ctx context.Context, id string, input model.UpdateOrderInput) (*model.Order, error) {
+	panic(fmt.Errorf("not implemented: UpdateOrder - updateOrder"))
 }
 
-// Product is the resolver for the product field.
-func (r *queryResolver) Product(ctx context.Context, id string) (*model.Product, error) {
-	panic(fmt.Errorf("not implemented: Product - product"))
-}
-
-// Products is the resolver for the products field.
-func (r *queryResolver) Products(ctx context.Context) ([]*model.Product, error) {
-	panic(fmt.Errorf("not implemented: Products - products"))
+// DeleteOrder is the resolver for the deleteOrder field.
+func (r *mutationResolver) DeleteOrder(ctx context.Context, id string) (*bool, error) {
+	panic(fmt.Errorf("not implemented: DeleteOrder - deleteOrder"))
 }
 
 // Order is the resolver for the order field.
@@ -41,7 +36,11 @@ func (r *queryResolver) Orders(ctx context.Context) ([]*model.Order, error) {
 	panic(fmt.Errorf("not implemented: Orders - orders"))
 }
 
+// Mutation returns MutationResolver implementation.
+func (r *Resolver) Mutation() MutationResolver { return &mutationResolver{r} }
+
 // Query returns QueryResolver implementation.
 func (r *Resolver) Query() QueryResolver { return &queryResolver{r} }
 
+type mutationResolver struct{ *Resolver }
 type queryResolver struct{ *Resolver }
