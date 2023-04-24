@@ -6,23 +6,19 @@ type CreateOrderInput struct {
 }
 
 type Order struct {
-	ID         string       `json:"id"`
-	User       *User        `json:"user"`
-	Status     string       `json:"status"`
-	TotalPrice float64      `json:"totalPrice"`
-	Items      []*OrderItem `json:"items,omitempty"`
-	CreatedAt  string       `json:"createdAt"`
-	UpdatedAt  string       `json:"updatedAt"`
+	ID         string  `json:"id"`
+	Status     string  `json:"status"`
+	TotalPrice float64 `json:"totalPrice"`
+	CreatedAt  string  `json:"createdAt"`
+	UpdatedAt  string  `json:"updatedAt"`
 }
 
 type OrderItem struct {
-	ID        string   `json:"id"`
-	Order     *Order   `json:"order"`
-	Product   *Product `json:"product"`
-	Quantity  int      `json:"quantity"`
-	Price     float64  `json:"price"`
-	CreatedAt string   `json:"createdAt"`
-	UpdatedAt string   `json:"updatedAt"`
+	ID        string  `json:"id"`
+	Quantity  int     `json:"quantity"`
+	Price     float64 `json:"price"`
+	CreatedAt string  `json:"createdAt"`
+	UpdatedAt string  `json:"updatedAt"`
 }
 
 type OrderItemInput struct {
@@ -31,5 +27,6 @@ type OrderItemInput struct {
 }
 
 type UpdateOrderInput struct {
+	ID     string  `json:"id"`
 	Status *string `json:"status,omitempty"`
 }

@@ -35,3 +35,13 @@ func (r *queryResolver) Users(ctx context.Context) ([]*model.User, error) {
 func (r *queryResolver) User(ctx context.Context, id string) (*model.User, error) {
 	panic(fmt.Errorf("not implemented: User - user"))
 }
+
+// Orders is the resolver for the orders field.
+func (r *userResolver) Orders(ctx context.Context, obj *model.User) ([]*model.Order, error) {
+	panic(fmt.Errorf("not implemented: Orders - orders"))
+}
+
+// User returns UserResolver implementation.
+func (r *Resolver) User() UserResolver { return &userResolver{r} }
+
+type userResolver struct{ *Resolver }

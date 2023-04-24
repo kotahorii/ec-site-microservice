@@ -26,6 +26,26 @@ func (r *mutationResolver) DeleteOrder(ctx context.Context, id string) (*bool, e
 	panic(fmt.Errorf("not implemented: DeleteOrder - deleteOrder"))
 }
 
+// User is the resolver for the user field.
+func (r *orderResolver) User(ctx context.Context, obj *model.Order) (*model.User, error) {
+	panic(fmt.Errorf("not implemented: User - user"))
+}
+
+// Items is the resolver for the items field.
+func (r *orderResolver) Items(ctx context.Context, obj *model.Order) ([]*model.OrderItem, error) {
+	panic(fmt.Errorf("not implemented: Items - items"))
+}
+
+// Order is the resolver for the order field.
+func (r *orderItemResolver) Order(ctx context.Context, obj *model.OrderItem) (*model.Order, error) {
+	panic(fmt.Errorf("not implemented: Order - order"))
+}
+
+// Product is the resolver for the product field.
+func (r *orderItemResolver) Product(ctx context.Context, obj *model.OrderItem) (*model.Product, error) {
+	panic(fmt.Errorf("not implemented: Product - product"))
+}
+
 // Order is the resolver for the order field.
 func (r *queryResolver) Order(ctx context.Context, id string) (*model.Order, error) {
 	panic(fmt.Errorf("not implemented: Order - order"))
@@ -39,8 +59,16 @@ func (r *queryResolver) Orders(ctx context.Context) ([]*model.Order, error) {
 // Mutation returns MutationResolver implementation.
 func (r *Resolver) Mutation() MutationResolver { return &mutationResolver{r} }
 
+// Order returns OrderResolver implementation.
+func (r *Resolver) Order() OrderResolver { return &orderResolver{r} }
+
+// OrderItem returns OrderItemResolver implementation.
+func (r *Resolver) OrderItem() OrderItemResolver { return &orderItemResolver{r} }
+
 // Query returns QueryResolver implementation.
 func (r *Resolver) Query() QueryResolver { return &queryResolver{r} }
 
 type mutationResolver struct{ *Resolver }
+type orderResolver struct{ *Resolver }
+type orderItemResolver struct{ *Resolver }
 type queryResolver struct{ *Resolver }
