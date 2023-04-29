@@ -1,0 +1,61 @@
+{
+  "user": [
+    {
+      "PutRequest": {
+        "Item": {
+          "id": { "S": "user1" },
+          "email": { "S": "user1@example.com" },
+          "firstName": { "S": "John" },
+          "lastName": { "S": "Doe" },
+          "createdAt": { "S": "2023-01-01T00:00:00Z" },
+          "updatedAt": { "S": "2023-01-01T00:00:00Z" }
+        }
+      }
+    }
+  ],
+  "product": [
+    {
+      "PutRequest": {
+        "Item": {
+          "id": { "S": "product1" },
+          "name": { "S": "Example Product" },
+          "description": { "S": "This is an example product." },
+          "price": { "N": "9.99" },
+          "imageUrl": { "S": "https://example.com/product1.jpg" },
+          "stock": { "N": "100" },
+          "createdAt": { "S": "2023-01-01T00:00:00Z" },
+          "updatedAt": { "S": "2023-01-01T00:00:00Z" }
+        }
+      }
+    }
+  ],
+  "order": [
+    {
+      "PutRequest": {
+        "Item": {
+          "id": { "S": "order1" },
+          "userId": { "S": "user1" },
+          "status": { "S": "pending" },
+          "totalPrice": { "N": "9.99" },
+          "createdAt": { "S": "2023-01-01T00:00:00Z" },
+          "updatedAt": { "S": "2023-01-01T00:00:00Z" }
+        }
+      }
+    }
+  ],
+  "order_item": [
+    {
+      "PutRequest": {
+        "Item": {
+          "id": { "S": "order-item1" },
+          "orderId": { "S": "order1" },
+          "productId": { "S": "product1" },
+          "quantity": { "N": "1" },
+          "price": { "N": "9.99" },
+          "createdAt": { "S": "2023-01-01T00:00:00Z" },
+          "updatedAt": { "S": "2023-01-01T00:00:00Z" }
+        }
+      }
+    }
+  ]
+}

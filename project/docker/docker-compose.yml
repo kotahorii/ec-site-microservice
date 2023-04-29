@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  dynamodb:
+    image: amazon/dynamodb-local
+    container_name: dynamodb-local
+    ports:
+      - '8000:8000'
+    command: -jar DynamoDBLocal.jar -sharedDb -dbPath ./data
+    volumes:
+      - './dynamodb-data:/home/dynamodblocal/data'
+
+  dynamodb-admin:
+    image: aaronshaf/dynamodb-admin
+    container_name: dynamodb-admin
+    ports:
+      - '8001:8001'
+    environment:
+      - DYNAMO_ENDPOINT=http://dynamodb:8000
+    depends_on:
+      - dynamodb
+
+  init-tables:
+    image: amazon/aws-cli
+    container_name: init-tables
+    volumes:
+      - ./init-tables:/init-tables
+    environment:
+      - AWS_ACCESS_KEY_ID=dummy
+      - AWS_SECRET_ACCESS_KEY=dummy
+      - AWS_DEFAULT_REGION=us-west-2
+    command: >
+      bash /init-tables/init-dynamodb.sh
+    depends_on:
+      - dynamodb
