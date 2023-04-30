@@ -4,7 +4,7 @@ import "google/protobuf/wrappers.proto";
 
 package user;
 
-option go_package = "github.com/microservice-ec-site/user";
+option go_package = "github.com/microservice-ec-site/user/pkg/proto";
 
 service UserService {
   rpc GetUserByID (GetUserByIDRequest) returns (User);
